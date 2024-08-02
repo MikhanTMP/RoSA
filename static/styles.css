@@ -1,0 +1,992 @@
+/* IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* font-family: 'Bebas Neue', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+/* font-family: 'Oswald', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+/* font-family: 'Teko', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&display=swap');
+/* font-family: 'Chakra Petch', sans-serif; */
+
+/* ENTIRE PAGE */
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+/* Light mode styles */
+/* body.light-mode {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Dark mode styles */
+/* body.dark-mode {
+    background-color: rgb(16, 15, 15);
+    color: #fff;
+} */
+
+
+body {
+    font-family: "Helvetica Neue";
+    background: #111;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+/* CONTAINER */
+.container {
+    margin: auto;
+    max-width: 900px;
+    margin-top: 20px;
+    padding: 10px;
+    /* border: 1px solid white; */
+}
+
+.upper-container {}
+
+/* UPPER PART */
+.header {
+    padding: 10px;
+}
+
+.header h1 {
+    font-family: 'Oswald', sans-serif;
+    color: rgb(243, 235, 235);
+    font-size: 3em;
+}
+
+.header h2 {
+    font-family: 'Chakra Petch', sans-serif;
+    margin-top: 5px;
+}
+
+.header p {
+    font-family: 'Chakra Petch', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: .8rem;
+}
+
+/* POST CONTAINER */
+.upper-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select-model {
+    padding: 10px;
+}
+
+#model {
+    color: black;
+    font-family: 'Chakra Petch', sans-serif;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #ccc;
+    width: 170px;
+}
+
+.post-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    /* border: 1px solid white; */
+    align-items: center;
+}
+
+
+.file-upload-details{
+    display: flex;
+    align-items: center;
+}
+
+#upload-btn {
+    cursor: pointer;
+    color: white;
+    border: none;
+    /* background-color: rgb(193, 163, 98); */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px rgb(193, 163, 98) solid;
+}
+
+.post-options button {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 10px;
+    color: rgb(193, 163, 98);
+    border: 2px solid rgb(193, 163, 98);
+    border-radius: 34px;
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+.post-options button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(193, 163, 98);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.post-options button:hover::before {
+    scale: 3;
+}
+
+.post-options button:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
+}
+
+.post-options button:active {
+    scale: 1;
+}
+
+
+input[type=file]::file-selector-button {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 10px;
+    color: rgb(193, 163, 98);
+    border: 2px solid rgb(193, 163, 98);
+    border-radius: 34px;
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+input[type=file]::file-selector-button:hover {
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    background-color: rgb(193, 163, 98);
+    color: #212121;
+}
+
+#indicator {
+    margin-left: 10px;
+    font-size: smaller;
+    color: #ccc;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#post-input-label {
+    margin-left: 10px;
+    font-size: smaller;
+    color: #ccc;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.post-fields {
+    padding: 10px;
+}
+
+#reddit-label {
+    color: rgba(236, 228, 228, 0.892);
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.link-container {
+    gap: 10px;
+}
+
+#link-input {
+    border-radius: 5px;
+    font-family: 'Chakra Petch', sans-serif;
+    padding: 10px;
+    width: 100%;
+}
+
+#extract-btn {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Chakra Petch', sans-serif;
+    cursor: pointer;
+}
+
+#extract-btn:hover {
+    background-color: rgb(193, 163, 98);
+}
+
+.text-area-details {
+    margin-top: 10px;
+}
+
+#reddit-post {
+    border-radius: 10px;
+    resize: none;
+    padding: 5px;
+    min-width: 100%;
+    font-family: 'Chakra Petch', sans-serif;
+    min-width: 98%;
+
+}
+
+.counter-char {
+    margin-bottom: 10px;
+    color: white;
+    font-style: italic;
+}
+
+
+#subreddit-form {
+    display: none;
+}
+
+#subreddit-form label {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 10px;
+}
+
+#subreddit-select {
+    padding: 8px;
+    margin: 8px 0;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#post-quantity-select {
+    padding: 8px;
+    margin: 8px 0;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Chakra Petch', sans-serif;
+    margin-bottom: 30px;
+}
+
+.bottom-details {}
+
+.output {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid white; */
+}
+
+.output-label {
+    display: flex;
+}
+
+#result {
+    font-family: 'Chakra Petch', sans-serif;
+    align-items: center;
+}
+
+#result-span {
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+    margin-left: 5px;
+    padding: 10px;
+    /* background-color: rgb(197, 109, 109); */
+    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+#result-span div {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#result-span div:nth-child(1) {
+    background-color: rgba(126, 3, 3, 0.868);
+}
+
+#result-span div:nth-child(1):hover::before {
+    content: "Intense emotional pain from loss or trauma, with physical and emotional symptoms.";
+    display: block;
+    position: absolute;
+    background-color: rgba(57, 57, 57, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px;
+    z-index: 1;
+    font-size: 10px;
+}
+
+#result-span div:nth-child(2) {
+    background-color: rgba(87, 3, 3, 0.868);
+}
+
+#result-span div:nth-child(2):hover::before {
+    content: "Feeling let down when expectations aren't met, leading to sadness and frustration.";
+    display: block;
+    position: absolute;
+    background-color: rgba(57, 57, 57, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px;
+    z-index: 1;
+    font-size: 10px;
+}
+
+#result-span div:nth-child(3) {
+    background-color: rgb(197, 109, 109);
+}
+
+#result-span div:nth-child(3):hover::before {
+    content: "Reflecting on life with regret or hopelessness, often in later stages, impacting well-being.";
+    display: block;
+    position: absolute;
+    background-color: rgba(57, 57, 57, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px;
+    z-index: 1;
+    font-size: 10px;
+}
+
+#result-span div:nth-child(4) {
+    background-color: rgb(199, 25, 25);
+}
+
+#result-span div:nth-child(4):hover::before {
+    content: "State of being unable to help oneself or others, accompanied by vulnerability.";
+    display: block;
+    position: absolute;
+    background-color: rgba(57, 57, 57, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px;
+    z-index: 1;
+    font-size: 10px;
+}
+
+#result-span div:nth-child(5) {
+    background-color: rgb(197, 64, 64);
+}
+
+#result-span div:nth-child(5):hover::before {
+    content: "Overwhelming sadness from loss, causing numbness and difficulty with daily tasks.";
+    display: block;
+    position: absolute;
+    background-color: rgba(57, 57, 57, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px;
+    z-index: 1;
+    font-size: 10px;
+}
+
+#result-span div:nth-child(6) {
+    background-color: rgb(156, 23, 23);
+}
+
+#result-span div:nth-child(6):hover::before {
+    content: "Persistent unhappiness, struggling to find joy despite external positives.";
+    display: block;
+    position: absolute;
+    background-color: rgba(57, 57, 57, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px;
+    z-index: 1;
+    font-size: 10px;
+}
+
+#result-span div:nth-child(7) {
+    background-color: rgba(66, 66, 156, 0.868);
+}
+
+#result-span div:nth-child(7):hover::before {
+    content: "Lacks emotional/sadness intensity";
+    display: block;
+    position: absolute;
+    background-color: rgba(57, 57, 57, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px;
+    z-index: 1;
+    font-size: 10px;
+}
+
+#more-btn {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    background-color: #463d3d;
+    color: rgb(227, 216, 216);
+    cursor: pointer;
+}
+
+.button-container {
+    margin-bottom: 10px;
+}
+
+#clear-btn {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(199, 186, 186);
+}
+
+#clear-btn:hover {}
+
+#analyze-btn {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(216, 182, 108);
+}
+
+#extract-analyze-btn {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(216, 182, 108);
+}
+
+#result-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.subreddit-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.left-side-reddit {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.post-reddit {
+    width: 500px;
+    /* min-height: 250px; */
+    /* max-height: 260px; */
+    background: white;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0px 0px 5px grey;
+    /* display: none; */
+    padding-bottom: 10px;
+}
+
+.post-more-info-reddit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.post-reddit:active {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 27px grey;
+}
+
+.user_info {
+    margin: 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.user_name {
+    vertical-align: middle;
+    font-weight: 500;
+    color: #7c7c7c
+}
+
+.post_content-reddit {
+    font-weight: 500;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: fit-content;
+    max-width: 100%;
+    /* overflow: scroll; */
+    text-overflow: ellipsis;
+    color: black;
+    font-family: 'Chakra Petch', sans-serif;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.content-reddit {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+.score-reddit {
+    /* font-size: 1.5em; */
+    margin-left: 10px;
+    margin-top: 10px;
+    color: rgb(199, 25, 25);
+}
+
+.user-reddit {
+    margin-left: 10px;
+    font-size: 10px;
+    /* font-weight: 400; */
+    color: #7c7c7c;
+}
+
+.post_title-reddit {
+    font-weight: 500;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: fit-content;
+    max-width: 100%;
+    /* overflow: scroll; */
+    text-overflow: ellipsis;
+    color: black;
+    font-family: 'Chakra Petch', sans-serif;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+
+
+.post {
+    width: 100%;
+    /* min-height: 250px; */
+    /* max-height: 260px; */
+    background: white;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0px 0px 5px grey;
+    margin-bottom: 20px;
+    /* display: none; */
+    padding-bottom: 10px;
+}
+span.votes {
+    text-transform: capitalize;
+    font-family: 'Chakra Petch', sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: bold;
+}
+.post-more-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.post:active {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 27px grey;
+}
+
+.subreddit_info {
+    margin: 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.subreddit_name {
+    vertical-align: middle;
+    font-weight: 500;
+    color: #7c7c7c
+}
+
+.post_title {
+    font-weight: 500;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: fit-content;
+    max-width: 100%;
+    /* overflow: scroll; */
+    text-overflow: ellipsis;
+    color: black;
+    font-family: 'Chakra Petch', sans-serif;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.comment_body {
+    font-weight: 400;
+    font-size: 1.2em;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+.score {
+    /* font-size: 1.5em; */
+    margin-left: 10px;
+    margin-top: 10px;
+    color: rgb(199, 25, 25);
+}
+
+.user {
+    margin-left: 10px;
+    font-size: 10px;
+    /* font-weight: 400; */
+    color: #7c7c7c;
+}
+
+.post_thumbnail {
+    vertical-align: middle;
+    height: 140px;
+    width: 140px;
+}
+
+.post_content {
+    /* display: inline-block; */
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+.count-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 16px;
+}
+
+.count-item p {
+    border: 1px solid rgb(231 216 183);
+    padding: 10px;
+    margin-top: 5px;
+    color: #eac4c4;
+    border-radius: 5px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#show-breakdown-btn {
+    cursor: pointer;
+    font-family: 'Chakra Petch', sans-serif;
+    padding: 5px;
+}
+
+.card {
+    width: 320px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgba(243, 244, 246, );
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 1rem;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    color: rgba(17, 24, 39, 1);
+    text-decoration: none;
+}
+
+.title:hover {
+    text-decoration: underline royalblue;
+}
+
+.name {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    color: rgba(75, 85, 99, 1);
+}
+
+.image,
+.image-reddit {
+    display: block;
+    flex-shrink: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    background-color: royalblue;
+}
+
+.description {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba(107, 114, 128, 1);
+}
+
+.post-info {
+    margin-top: 1.5rem;
+    display: flex;
+    grid-gap: 1rem;
+    gap: 1rem;
+}
+
+.cr {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.dt {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: rgba(75, 85, 99, 1);
+}
+
+.dd {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(107, 114, 128, 1);
+}
+
+
+.loader-cont{
+    width: 100px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    /* height: 80px; */
+    position: relative;
+  }
+  
+  .loader:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+  }
+  
+  .loader-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .loader-block {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 20px #fff;
+    animation: loader_562 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  }
+  
+  .loader-block:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .loader-block:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loader-block:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .loader-block:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  
+  .loader-block:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  
+  .loader-block:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+  
+  .loader-block:nth-child(7) {
+    animation-delay: 0.7s;
+  }
+  
+  .loader-block:nth-child(8) {
+    animation-delay: 0.8s;
+  }
+  
+  @keyframes loader_562 {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+  
+    20% {
+      transform: scale(1, 2.5);
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.7);
+    }
+  
+    40% {
+      transform: scale(1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+  }
+  
+
+
+  @media only screen and (max-width: 500px) {
+    .header h1 {
+        font-family: 'Oswald', sans-serif;
+        color: rgb(243, 235, 235);
+        font-size: 1.5em;
+        text-align: center;
+    }
+    
+    .header h2 {
+        font-family: 'Chakra Petch', sans-serif;
+        margin-top: 5px;
+        font-size: 1em;
+        text-align: center;
+    }
+    
+    .header p {
+        font-family: 'Chakra Petch', sans-serif;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 10px;
+        text-align: center;
+    }
+    #indicator {
+        font-size: 10px;
+        text-align: center;
+    }
+    #model{
+        font-size: 10px;
+        text-align: center;
+    }
+    #post-input-label {
+        margin-left: 10px;
+        font-size: 10px;
+        color: #ccc;
+        font-family: 'Chakra Petch', sans-serif;
+        text-align: center;
+    }
+    .post-options button {
+        cursor: pointer;
+        position: relative;
+        padding: 6px 18px;
+        font-size: 10px;
+        color: rgb(193, 163, 98);
+        border: 2px solid rgb(193, 163, 98);
+        border-radius: 34px;
+        background-color: transparent;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+        overflow: hidden;
+    }
+    .post-options{
+        justify-content: center;
+    }
+    .upper-details {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    input[type=file]::file-selector-button {
+        cursor: pointer;
+        position: relative;
+        padding: 6px 18px;
+        font-size: 10px;
+        color: rgb(193, 163, 98);
+        border: 2px solid rgb(193, 163, 98);
+        border-radius: 34px;
+        background-color: transparent;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+        overflow: hidden;
+    }
+    #upload-btn {
+        cursor: pointer;
+        color: white;
+        border: none;
+        /* background-color: rgb(193, 163, 98); */
+        padding: 2px;
+        padding-left: 8px;
+        border-radius: 5px;
+        border: 1px rgb(193, 163, 98) solid;
+        padding-right: 8px;
+    }
+    #reddit-label{
+        font-size: 10px;
+    }
+    #processing-time{
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 501px) and (max-width: 1200px) {
+    .header h1 {
+        font-family: 'Oswald', sans-serif;
+        color: rgb(243, 235, 235);
+        font-size: 2.5em;
+    }
+    
+    .header h2 {
+        font-family: 'Chakra Petch', sans-serif;
+        margin-top: 5px;
+        font-size: 1.5em;
+    }
+    
+    .header p {
+        font-family: 'Chakra Petch', sans-serif;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 10px;
+    }
+  }

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINE-GRAINED SADNESS EMOTION CLASSIFIER</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="/static/9391705.png" type="image/png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="upper-container">
+            <div class="header"> 
+                <h1>RoSA (RoBERTa Sadness Analyzer)</h1>
+                <!-- <button id="toggle-mode-btn">Toggle Dark/Light Mode</button> -->
+                <h2>a Fine-Grained Sadness Emotion Classifier</h2>
+                <!-- <hr> -->
+                <p id="description">an innovative web application that analyze and classify emotions within textual content. The system employs a Fine-Tuned RoBERTa Model, meticulously crafted to discern the subtle nuances of sadness within the intricacies of language. Users can submit any text, and the system seamlessly categorizes and provides insights into the emotional context, offering a nuanced understanding of the spectrum of sadness. Experience a new dimension of emotional intelligence as the system elevates your text analysis capabilities, providing invaluable tools for sentiment analysis and empathetic comprehension. Unlock the potential of emotion classification, where technology meets emotional acuity.</p>
+            </div>
+            <div class="post-container">
+                <div class="upper-details">
+                    <div>
+                        <p id="indicator"> </p>
+                        <div class="select-model">
+                            <select id="model">
+                                <option selected value="1">RoSA's Model</option>
+                                <option value="2">Go Emotion's Model</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <p id="post-input-label">Select type of input: </p>
+                        <div class="post-options">
+                            <button id="text-option-btn" disabled>Text</button>
+                            <button id="link-option-btn">Link</button>
+                            <button id="reddit-option-btn">Subreddit</button>
+                            <form method="POST" action="/index" enctype="multipart/form-data" id="file-upload-form">
+                                <div class="file-upload-details">
+                                    <input id="file-option-btn" type="file" accept=".xls, .xlsx" name="file">
+                                    <button type="submit" id="upload-btn"><img width="12" height="12" src="https://img.icons8.com/material-outlined/24/FFFFFF/upload--v1.png" alt="upload--v1"/></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="loader-cont">
+                    <div class="loader" style="display: none;">
+                        <div class="loader-inner">
+                          <div class="loader-block"></div>
+                          <div class="loader-block"></div>
+                          <div class="loader-block"></div>
+                          <div class="loader-block"></div>
+                          <div class="loader-block"></div>
+                          <div class="loader-block"></div>
+                          <div class="loader-block"></div>
+                          <div class="loader-block"></div>
+                        </div>
+                      </div>
+                      
+                </div>
+                <div class="post-fields">
+                    <label id="reddit-label">Reddit Post:</label>
+                    <!-- FORM FOR EXTRACTING -->
+                    <form method="POST" id="extract-form">
+                        <div class="link-container" style="display: none;">
+                            <input value="" type="url" id="link-input" name="link-input" placeholder="Enter URL">
+                            <button id="extract-btn">Extract Post</button>
+                        </div>
+                    </form>
+
+                    <!-- FORMS FOR ANALYZING -->
+                    <form method="POST" id="analyze-form">
+                        <div class="text-area-details">
+                            <textarea id="reddit-post" name="reddit-post" rows="8" cols="40" maxlength="5000" placeholder="Enter Reddit Post" ></textarea>
+                            <div class="counter-char">0/5000</div>
+                                <div class="bottom-details">
+                                    <div class="output">
+                                        <div class="output-label">
+                                            <p id="result" style="display: none;">The sentiment/post shows:  </p>
+                                            <span id="result-span" style="display: none;"></span>
+                                        </div>
+                                        <p id="processing-time" style="display: none;">Process Time: </p>
+                                        <button id="more-btn" type="button" style="display: none;">•••</button>
+                                    </div>
+
+                                    <div class="button-container">
+                                        <button id="clear-btn" type="button">Clear</button>
+                                        <button id="analyze-btn" type="submit">Analyze</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </form>
+
+                    <!--FORMS FOR SELECTING SUBREDDIT-->
+                    <form method="POST" id="subreddit-form">
+                        <div class="subreddit-container">
+                            <div class="left-side-reddit">
+                                <select name="subreddit" id="subreddit-select">
+                                    <option value="depression" selected> r/depression</option>
+                                    <option value="sad">r/sad</option>
+                                    <option value="ForeverAlone">r/ForeverAlone</option>
+                                    <option value="SuicideWatch">r/SuicideWatch</option>
+                                    <option value="happy">r/happy</option>
+                                </select>
+                                <label># of Post: </label>
+                                <select name="post-quantity" id="post-quantity-select">
+                                    <option value="5" selected>5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="20">50</option>
+                                    <option value="20">100</option>
+                                    <option value="20">500</option>
+                                    <option value="20">1000</option>
+                                </select> 
+        
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div>
+                                            <a class="title" href="https://www.reddit.com/r/happy/">
+                                                Happy Reddit to make you happy
+                                            </a>
+                                            <p class="name">r/happy</p>
+                                        </div>
+                                        <span class="image"><img class="image-reddit"
+                                                src="https://b.thumbs.redditmedia.com/cVLLdr_kSD9sCly5HlQCmPtaoUSLG_s5oRQjBI2YqmY.png"></img></span>
+                                    </div>
+                                    <p class="description">
+                                        Too many depressing things on the main page, so post about what makes you warm and fuzzy inside!
+                                    </p>
+                                    <dl class="post-info">
+                                        <div class="cr">
+                                            <dt class="dt" id="dateEstablished">Jan 25, 2008</dt>
+                                            <dd class="dd" id="datelabel">Created</dd>
+                                        </div>
+                                        <div class="cr">
+                                            <dt class="dt" id="totalmembers">722,392</dt>
+                                            <dd class="dd" id="memberlabel">Happy Campers</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+        
+                                <div class="button-container">
+                                    <button id="extract-analyze-btn" type="submit">Extract and Analyze</button>
+                                </div>
+                            </div>
+    
+                            <div id="right-side-reddit" style="display: none;">
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="result-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
