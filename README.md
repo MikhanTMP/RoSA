@@ -16,7 +16,7 @@ RoSA is a fine-grained emotion classifier that leverages the RoBERTa model to an
 
 1. Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/MikhanTMP/RoSA.git
    cd [repository directory]
 2. Create and activate a virtual environment:
    ```
